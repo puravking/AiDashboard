@@ -1,9 +1,10 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { incidentsState } from "../state/atoms";
 import Card from "./Card";
 import { Incident } from "../data/mockIncidents";
 import { motion } from "framer-motion";
+import BlurText from "./BlurText"; // 👈 Import BlurText
 
 function Content() {
   const allIncidents = useRecoilValue(incidentsState);
@@ -52,8 +53,16 @@ function Content() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        {sorted.map((elem) => (
-          <Card key={elem.id} elem={elem} />
+        {sorted.map((elem, index) => (
+          <BlurText
+            key={elem.id}
+            text=""
+            delay={index * 100} // small staggered delay
+            animateBy="words"
+            direction="top"
+          >
+            <Card elem={elem} />
+          </BlurText>
         ))}
       </motion.div>
     </div>

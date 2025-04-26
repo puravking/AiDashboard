@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { incidentsState } from "../state/atoms";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { incidentsState, newIncidentIdState } from "../state/atoms";
 import { motion } from "framer-motion";
 
 function Form() {
@@ -8,6 +8,7 @@ function Form() {
   const [description, setDescription] = useState("");
   const [severity, setSeverity] = useState("");
   const [incidents, setIncidents] = useRecoilState(incidentsState);
+  const setNewIncidentId = useSetRecoilState(newIncidentIdState);
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,6 +29,8 @@ function Form() {
     };
 
     setIncidents((prev) => [...prev, newIncident]);
+    setNewIncidentId(newIncident.id);
+
     setTitle("");
     setDescription("");
     setSeverity("");
@@ -55,7 +58,9 @@ function Form() {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Incident Title"
           whileFocus={{ scale: 1.02 }}
-          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 ${error && !title ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 ${
+            error && !title ? "border-red-500" : "border-gray-300"
+          }`}
         />
 
         <motion.textarea
@@ -64,14 +69,18 @@ function Form() {
           placeholder="Incident Description"
           rows={3}
           whileFocus={{ scale: 1.02 }}
-          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 resize-none ${error && !description ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 resize-none ${
+            error && !description ? "border-red-500" : "border-gray-300"
+          }`}
         />
 
         <motion.select
           value={severity}
           onChange={(e) => setSeverity(e.target.value)}
           whileFocus={{ scale: 1.02 }}
-          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 ${error && !severity ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 bg-gray-100 dark:bg-gray-800 ${
+            error && !severity ? "border-red-500" : "border-gray-300"
+          }`}
         >
           <option value="">Select Severity</option>
           <option value="Low">Low</option>

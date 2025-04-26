@@ -27,5 +27,18 @@ export const incidentsState = atom<Incident[]>({
       severity: "Low",
       reported_at: "2025-03-20T09:15:00Z"
     }
+    ,
+    {
+        "id": 4,
+        "title": "Unauthorized Model Fine-Tuning Detected",
+        "description": "A deployed AI model was unintentionally fine-tuned with unauthorized external data, leading to subtle bias shifts in output.",
+        "severity": "Medium",
+        "reported_at": "2025-04-10T14:22:00Z"
+      }
+      
   ], // Default data (mock incidents)
 });
+export const newIncidentIdState = atom<number | null>({
+    key: 'newIncidentIdState',
+    default: null,
+  });
