@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
-import './Ribbons.css';
-
 interface RibbonsProps {
   colors?: string[];
   baseSpring?: number;
@@ -271,7 +269,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
     backgroundColor,
   ]);
 
-  return <div ref={containerRef} className="ribbons-container" />;
+  return <div ref={containerRef} className="relative w-full h-full" />;
 };
 
 export default Ribbons;
