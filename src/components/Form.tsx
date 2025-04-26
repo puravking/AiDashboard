@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { incidentsState } from "../state/atoms";
 import { motion } from "framer-motion";

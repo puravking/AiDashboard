@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Incident } from '../data/mockIncidents';
 import { motion, AnimatePresence } from 'framer-motion';
 
