@@ -15,28 +15,34 @@ function Card({ elem }: CardProps) {
   };
 
   const getSeverityColor = () => {
-    if (severity === 'High') return 'text-red-600';
-    if (severity === 'Medium') return 'text-yellow-500';
-    return 'text-green-600';
+    if (severity === 'High') return 'bg-red-400';
+    if (severity === 'Medium') return 'bg-yellow-400';
+    return 'bg-green-400';
   };
 
   return (
     <motion.div
-      className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl w-full sm:w-80 p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300"
-      initial={{ opacity: 0, y: 40 }}
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 transition-transform transform hover:scale-105"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03 }}
     >
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{title}</h3>
-        <p className="text-xs text-gray-500 mt-1">{new Date(reported_at).toLocaleDateString()}</p>
-        <p className={`text-sm mt-2 font-medium ${getSeverityColor()}`}>{severity}</p>
+      <div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{title}</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+          {new Date(reported_at).toLocaleDateString()}
+        </p>
+        <p
+          className={`text-sm font-semibold mt-2 text-white px-3 w-19 py-1 rounded-full ${getSeverityColor()}`}
+        >
+          {severity}
+        </p>
       </div>
 
       <motion.button
         onClick={toggleDetails}
-        whileTap={{ scale: 0.96 }}
-        className="w-full text-sm py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition duration-200"
+        className="flex items-center justify-center w-full text-sm py-2 px-4 mt-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200"
+        whileTap={{ scale: 0.95 }}
       >
         {showDetails ? 'Hide Details' : 'View Details'}
       </motion.button>
@@ -45,9 +51,9 @@ function Card({ elem }: CardProps) {
         {showDetails && (
           <motion.div
             className="mt-4 text-gray-700 dark:text-gray-300 text-sm"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
             <p>{description}</p>

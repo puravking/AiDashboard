@@ -45,7 +45,7 @@ git clone https://github.com/your-username/AiDashboard.git
 - Unzip it to your local machine.
 
 💻 Run It Locally
-Open the folder in Visual Studio Code or your preferred IDE.
+-Open the folder in Visual Studio Code or your preferred IDE.
 
 Navigate to the project directory:
 

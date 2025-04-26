@@ -21,12 +21,12 @@ function Content() {
   });
 
   return (
-    <div className="p-4 max-w-screen-xl mx-auto">
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+    <div className="p-6 max-w-screen-xl mx-auto bg-gray-900 rounded-lg shadow-md">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
         <motion.select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="px-4 py-2 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+          className="px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           whileTap={{ scale: 0.97 }}
         >
           <option value="All">All Severities</option>
@@ -38,7 +38,7 @@ function Content() {
         <motion.select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="px-4 py-2 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+          className="px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           whileTap={{ scale: 0.97 }}
         >
           <option value="Newest">Newest First</option>
@@ -47,7 +47,7 @@ function Content() {
       </div>
 
       <motion.div
-        className="flex flex-wrap justify-center gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}

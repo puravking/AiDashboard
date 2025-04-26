@@ -1,28 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import Form from './components/Form';
 import Topbar from './components/Topbar';
 import Content from './components/Content';
-import { RecoilRoot } from 'recoil';
-// import gab from './images/gabriele-malaspina-CjWsslYVnPI-unsplash.jpg'; // ✅ Make sure ima.js exports a valid image path or use a direct path
 
 function App() {
+  const [theme, setTheme] = useState('dark'); // Default theme is dark
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <RecoilRoot>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-        <Topbar />
+      <div
+        className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100' : 'bg-gradient-to-br from-white via-gray-100 to-gray-200 text-gray-800'} transition-all duration-500`}
+      >
+        <Topbar toggleTheme={toggleTheme} theme={theme} />
 
-        <div className="flex justify-center">
-          {/* <img
-            src={gab}
-            alt="AI Illustration"
-            className="opacity- w-full max-w-5xl object-cover rounded-xl shadow-md mx-4 mt-6"
-          /> */}
-        </div>
-
-        <div className="px-4 sm:px-8 md:px-16 py-8 space-y-12">
+        <main className="flex-1 container mx-auto px-4 sm:px-8 md:px-16 py-8 space-y-12">
           <Content />
           <Form />
-        </div>
+        </main>
+
+        <footer className="text-center text-gray-500 text-sm py-4 border-t border-gray-700">
+          © 2025 AI Safety Incident Dashboard. All rights reserved.
+        </footer>
       </div>
     </RecoilRoot>
   );
