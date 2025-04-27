@@ -15,6 +15,7 @@ function App() {
 
   return (
     <RecoilRoot>
+      {/* Outer wrapper with shared background */}
       <div
         className={`min-h-screen relative flex flex-col ${
           theme === 'dark'
@@ -22,9 +23,10 @@ function App() {
             : 'bg-gradient-to-br from-white via-gray-100 to-gray-200 text-gray-800'
         } transition-all duration-500`}
       >
+        {/* Topbar */}
         <Topbar toggleTheme={toggleTheme} theme={theme} />
 
-        {/* Background effects */}
+        {/* Background effects (Particles + Ribbons) */}
         <div className="absolute inset-0 z-0">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
@@ -36,7 +38,16 @@ function App() {
             alphaParticles={false}
             disableRotation={false}
           />
-          <div style={{ height: '100vh', width: '100vw', position: 'absolute', top: 0, left: 0, overflow: 'hidden' }}>
+          <div
+            style={{
+              height: '100vh',
+              width: '100vw',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              overflow: 'hidden',
+            }}
+          >
             <Ribbons
               baseThickness={30}
               colors={['#ffffff']}
@@ -45,15 +56,19 @@ function App() {
               enableFade={false}
               enableShaderEffect={true}
             />
+            
           </div>
+          
+          
         </div>
 
         {/* Main content */}
         <main className="flex-1 relative z-10 container mx-auto px-4 sm:px-8 md:px-16 py-8 space-y-12">
-          <Content />
-          <Form />
+        <Content />
+        <Form />
         </main>
 
+        {/* Footer */}
         <footer className="relative z-10 text-center text-gray-500 text-sm py-4 border-t border-gray-700">
           © 2025 AI Safety Incident Dashboard. All rights reserved.
         </footer>
