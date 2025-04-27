@@ -47,10 +47,10 @@ Step 1: clone the repository or download as zip
 💻 Run It Locally
 -Open the folder in Visual Studio Code or your preferred IDE.
 ### Steps to run it locally
-Navigate to the project directory: "cd AiDahboard" one or two times util you navigate to project directory
-Run-  "npm install" in terminal
+-Navigate to the project directory: "cd AiDahboard" one or two times util you navigate to project directory
+-Run-  "npm install" in terminal
 and then run "npm run dev" in terminal
-FInal step - open "http://localhost:5173/" on browser
+-Final step - open "http://localhost:5173/" on browser
 You should now see the AI Safety Incident Dashboard in action!
 
 🤝 Contributing
