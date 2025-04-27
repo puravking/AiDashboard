@@ -15,7 +15,7 @@ function Topbar({ toggleTheme, theme }: TopbarProps) {
   const lowCount = useRecoilValue(lowSeverityCountState);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black px-8 py-10 transition-all duration-300">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black px-8 py-10 transition-all duration-300">
       <div className="text-center space-y-6">
         <h1 className="text-white text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
           AI Safety Incident Reporting Dashboard
