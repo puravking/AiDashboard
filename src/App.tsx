@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import  { useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import Form from './components/Form';
 import Topbar from './components/Topbar';
@@ -7,24 +7,19 @@ import Particles from './components/Particles';
 import Ribbons from './components/Ribbons';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  // const [theme, setTheme] = useState('dark');
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  // const toggleTheme = () => {
+  //   setTheme(theme === 'dark' ? 'light' : 'dark');
+  // };
 
   return (
     <RecoilRoot>
       {/* Outer wrapper with shared background */}
       <div
-        className={`min-h-screen relative flex flex-col ${
-          theme === 'dark'
-            ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100'
-            : 'bg-gradient-to-br from-white via-gray-100 to-gray-200 text-gray-800'
-        } transition-all duration-500`}
       >
         {/* Topbar */}
-        <Topbar toggleTheme={toggleTheme} theme={theme} />
+        <Topbar />
 
         {/* Background effects (Particles + Ribbons) */}
         <div className="absolute inset-0 z-0">

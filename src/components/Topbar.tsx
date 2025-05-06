@@ -1,13 +1,13 @@
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+// import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useRecoilValue } from 'recoil';
 import { totalIncidentsState, highSeverityCountState, mediumSeverityCountState, lowSeverityCountState } from '../state/atoms';
 
-type TopbarProps = {
-  toggleTheme: () => void;
-  theme: string;
-};
+// type TopbarProps = {
+//   toggleTheme: () => void;
+//   theme: string;
+// };
 
-function Topbar({ toggleTheme, theme }: TopbarProps) {
+function Topbar() {
   // Fetching the total incidents count and severity counts using Recoil's useRecoilValue
   const totalIncidents = useRecoilValue(totalIncidentsState);
   const highCount = useRecoilValue(highSeverityCountState);

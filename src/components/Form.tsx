@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { incidentsState, newIncidentIdState } from "../state/atoms";
 import { motion } from "framer-motion";
+// import { Incident } from "../data/mockIncidents";
 
 function Form() {
   const [title, setTitle] = useState("");
@@ -28,7 +29,7 @@ function Form() {
       reported_at: new Date().toISOString(),
     };
 
-    setIncidents((prev) => [...prev, newIncident]);
+    setIncidents((prev):any => [...prev, newIncident]);
     setNewIncidentId(newIncident.id);
 
     setTitle("");
