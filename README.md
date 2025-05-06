@@ -6,7 +6,7 @@ Built using **React + TypeScript**, styled with **Tailwind CSS**, and enhanced w
 
 ---
 
-Live Demo:https://aismartchaindashboard.netlify.app/
+Live Demo:https://smartaidashboard.netlify.app/
 ## 🧰 Tech Stack
 
 - ⚛️ React (with Vite)
